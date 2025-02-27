@@ -5,10 +5,12 @@ import { createOrder } from "../../services/apiRestaurant";
 import store from "../../store";
 import EmptyCart from "../cart/EmptyCart";
 import Button from "../../ui/Button";
+
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, getCart, getTotalCartPrice } from "../cart/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import { fetchAddress } from "../user/userSlice";
+
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -26,7 +28,6 @@ function CreateOrder() {
   } = useSelector((state) => state.user);
 
   const isLoadingAddress = addresstatus === "loading";
-
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const dispatch = useDispatch();
